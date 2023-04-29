@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+
+kind: Ingress
+
+metadata:
+
+  name: productcatalogue-service
+
+  annotations:
+
+    nginx.ingress.kubernetes.io/rewrite-target: /
+
+spec:
+
+  ingressClassName: ingress-xyz
+
+  rules:
+
+  - http:
+
+      paths:
+
+      - path: ./
+
+        pathType: Prefix
+
+        backend:
+
+          service:
+
+            name: test1
+
+            port:
+
+              number: 8020
+
